@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: lightblue;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #tableform {
+        background-color: bisque;
+        border: 2px solid black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+        text-align: center;
+        margin: 0;
+        font-size: 1.5em;
+    }
+
+    #puzzel-table {
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+
+    #puzzel-table td {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 1.5em;
+        font-weight: bold;
+        border: 2px solid black;
+        background-color: white;
+    }
+
+</style>
+
+<body>
+    <div id="tableform" style="background-color: bisque;">
+        <h1 style="text-align: center;">Current State</h1>
+        <table id="puzzel-table">
+            <tr class="row">
+                <td id="1" class="col"></td>
+                <td id="2" class="col"></td>
+                <td id="3" class="col"></td>
+            </tr>
+            <tr class="row">
+                <td id="4" class="col"></td>
+                <td id="5" class="col"></td>
+                <td id="6" class="col"></td>
+            </tr>
+            <tr class="row">
+                <td id="7" class="col"></td>
+                <td id="8" class="col"></td>
+                <td id="9" class="col"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    function randomCells() {
+        let numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        numArr.sort(() => Math.random() - 0.5)
+        numArr.slice(0, 8)
+        var cells = document.querySelectorAll("#puzzel-table td")
+        var i = 0
+        cells.forEach(function (cells) {
+            if (numArr[i] == 0) {
+                numArr[i] = ""
+            }
+            cells.textContent = numArr[i]
+            i++
+        })
+    }
+    function onMouseDownUp(params) {
+        let table = document.getElementById('puzzel-table')
+        table.addEventListener('mousedown', function (event) {
+            if (event.target.tagName === 'TD') {
+                var cellValue = event.target.textContent;
+                event.target.style.color = 'red'
+                // console.log(cellValue)
+            }
+        })
+        table.addEventListener('mouseup', function (event) {
+            if (event.target.tagName === 'TD') {
+                var cellValue = event.target.textContent;
+                event.target.style.color = 'black'
+                // console.log(cellValue)
+            }
+        })
+    }
+    function swapValue() {
+        let arrID = []
+        let table = document.getElementById('puzzel-table')
+        let countClick = false
+        table.addEventListener('click', function (event) {
+            countClick = true
+            if (event.target.tagName = 'TD') {
+                arrID.push(event.target.id)
+                var cell1 = document.getElementById(arrID[0])
+                var cell2 = document.getElementById(arrID[1])
+                if (arrID[0] % 2 == 0 && arrID[1] % 2 != 0 && (cell1.innerHTML == "" || cell2.innerHTML == "")) {
+                    temp = cell1.innerHTML
+                    cell1.innerHTML = cell2.innerHTML
+                    cell2.innerHTML = temp
+                }
+                console.log(arrID)
+                if (arrID.length == 2) {
+                    arrID.shift()
+                }
+            }
+        })
+    }
+    randomCells()
+    onMouseDownUp()
+    swapValue()
+</script>
+
+</html>

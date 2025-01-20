@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flower{
+        width: 30%;
+        height: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: blue;
+        background-color: rgb(74, 230, 34);
+    }
+    :hover.flower{
+        color: red;
+        font-size: larger;
+    }
+    tr.color {
+        border: 1px solid green; /* Viền dưới là gạch đơn màu xanh lá */
+        
+    }
+    table {
+        width: 60%;
+        margin: auto;
+        border: 2px solid red; /* Viền đỏ bao quanh bảng */
+        border-collapse: collapse; /* Xóa khoảng trống giữa các ô */
+    }  
+</style>
+<body>
+    <table  id="table" border="1" cellpading="0" cellspacing="1" >
+        <tr>
+            <td id="title" colspan="2" style="background-color: bisque;text-align:center;font-weight:bold;color:blue">THE MOST BEAUTIFUL FLOWERS</td>
+        </tr>
+        <tr class="color">
+            <td id="rose" class="flower">ROSE</td>
+            <td id="img" rowspan="4"></td>
+        </tr>
+        <tr class="color">
+            <td id="tulip" class="flower">Tulip</td>
+        </tr>
+        <tr class="color">
+            <td id="orchid" class="flower">Orchid</td>
+        </tr>
+        <tr class="color">
+            <td id="sunflower" class="flower">Sunflower</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size: 8px;padding-left:51%;background-color:rgb(205, 201, 201)">Copyright @ 2011 - 2020 <a href="">Incut Digital.</a> All rights reserved</td>
+        </tr>
+    </table>
+    
+</body>
+<script>
+    var img = document.getElementById("img")
+    var table = document.getElementById("table")
+    table.addEventListener('mouseover',function(event){
+        if(event.target.tagName="ID" && event.target.id !="img"){
+            if(event.target.id == "rose"){
+                img.innerHTML ='<img src="../img/rose.jpg">'
+            }else if(event.target.id == "tulip"){
+                img.innerHTML ='<img src="../img/tulip.jpg">'
+            }else if(event.target.id == "orchid"){
+                img.innerHTML ='<img src="../img/orchid.jpg">'
+            }else{
+                img.innerHTML ='<img src="../img/sunflower.jpg">'
+            }
+        }
+    })
+</script>
+</html>
