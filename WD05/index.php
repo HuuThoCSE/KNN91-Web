@@ -250,7 +250,7 @@
 
                            <a href="index.php?id=<?php echo $row_related['id_book'];?>"> 
                                 <div class="book_related">
-                                    <img src="/img/<?php echo $row_related['image'];?>" alt="">
+                                    <img src="img/<?php echo $row_related['image'];?>" alt="">
                                     <p><?php echo $row_related['name']?></p>
                                 </div>
                             </a>
