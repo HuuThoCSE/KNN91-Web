@@ -1,5 +1,5 @@
 <?php
- $conn=new mysqli("localhost","root","","cites_wd02");
+ $conn=new mysqli("localhost","root","","wd02_cites");
  if(isset($_POST['country'])){
     $query="SELECT ct.Name as city, c.Name as country
     from cities ct, countries c

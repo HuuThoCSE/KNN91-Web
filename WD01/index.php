@@ -1,6 +1,6 @@
 
 <?php
-    $conn= mysqli_connect('localhost', 'root','','mannerings_wd1' );
+    $conn= mysqli_connect('localhost', 'root','','wd01_mannerings');
     mysqli_set_charset($conn,'utf8')
 ?>
 <!DOCTYPE html>

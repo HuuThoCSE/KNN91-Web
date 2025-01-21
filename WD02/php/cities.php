@@ -1,5 +1,5 @@
 <?php
-    $conn= new mysqli("localhost","root", "","cites_wd02")
+    $conn= new mysqli("localhost","root", "","wd02_cites")
 ?>
 <!DOCTYPE html>
 <html lang="en">

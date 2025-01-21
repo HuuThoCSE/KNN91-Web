@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Graden</title>
+    <style>
+        body{
+            color: rgb(126, 42, 0);
+        }
+        header{
+            text-align: center;
+            background-color: green;
+            border: 2px solid rgb(126, 42, 0);
+        }
+        main{
+            background-color: green;
+            border: 2px solid rgb(126, 42, 0);
+            height: 50vh;
+            overflow-y: auto;
+        }
+        footer{
+            text-align: center;
+            background-color: green;
+            border: 2px solid rgb(126, 42, 0);
+            height: 10vh;
+        }
+        footer div{
+            margin-top: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Flower Garden</h1>
+    </header>
+    <main id="main">
+    </main>
+    <footer>
+        <div>
+            # of flower patched:
+            <input type="number" id="count">
+            <button id="plant">Plant Garden</button>
+            <button id="clear">Clear</button>
+        </div>
+    </footer>
+    <script src="garden.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+body, input, select, option {
+	font-family: sans-serif;
+}
+
+body {
+	background-color: #d5dfe8;
+	background-image: url("world.jpg");
+	background-repeat: no-repeat;
+	text-align: center;
+}
+
+table {
+	border: 3px outset #1d568a;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+tr, td, th {
+	background-color: #f3f6f9;
+	border: 2px solid #1d568a; 
+	padding: 0.25em;
+}
+
+th {
+	background-color: #6495c0;
+	color: white;
+}

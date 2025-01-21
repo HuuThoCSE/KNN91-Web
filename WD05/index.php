@@ -31,6 +31,7 @@
         $error = true;
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -230,7 +231,6 @@
                     <button id="download">Download</button>
                 </div>
             </div>
-
         </div>
         <p>Related books</p>
         <div class="related">
@@ -292,7 +292,6 @@
     
     function handle_ajax()
     {
-
         var name = document.getElementById('bookname').innerHTML;
         var pages = document.getElementById('pages');
         $.ajax({

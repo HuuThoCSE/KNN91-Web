@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Form</title>
+</head>
+
+<body>
+    <form id="myForm" enctype="multipart/form-data">
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        <input type="file" name="file" id="file">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('myForm').onsubmit = function (event) {
+            event.preventDefault(); // Ngăn form reload trang
+            const formData = new FormData(this);
+            
+            fetch('a.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').innerHTML = data;
+            })
+            .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+
+</html>

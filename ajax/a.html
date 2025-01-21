@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tét</title>
+</head>
+
+<body>
+    <form onsubmit="return loaddata(this)" enctype="multipart/form-data">
+        <input type="text" name="name" id="name">
+        <input type="file" name="file" id="file">
+        <br>
+        <br>
+        <button type="submit">click here</button>
+    </form>
+    <div id="loaddatahere">
+
+    </div>
+    <script>
+        function loaddata(e) {
+            //tạo xml http request
+            var xhttp = new XMLHttpRequest();
+            //khi trạng thái thay đổi của xml http request (On Ready State Change)
+            xhttp.onreadystatechange = function () {
+                //nếu trạng thái là 4 và status là 200 tức là đã nhận được dữ liệu từ server
+                if (this.readyState == 4 && this.status == 200) {
+                    //in dữ liệu ra nếu có
+                    document.getElementById("loaddatahere").innerHTML = this.responseText;
+                }
+            };
+            //mở kết nối với server
+            xhttp.open("POST", "a.php", true);
+            
+            //gửi dữ liệu form lên server
+            var formdata = new FormData(e);
+            xhttp.send(formdata);
+
+            //nhớ return false để không load lại trang
+            return false;
+        }
+    </script>
+</body>
+
+</html>

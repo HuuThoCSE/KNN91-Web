@@ -1,0 +1,37 @@
+/* CSE 190M - Section 10 - Practice Problem #3 */
+
+button, h1, #controls, input {
+	background-color: #669933;
+	border: 2px solid #666633;
+	color: #333300;
+	font-size: 16pt;
+	font-family: "Verdana", sans-serif;
+	padding: 4px;
+	text-align: center;
+}
+
+button, input {
+	background-color: white;
+}
+
+#garden {
+	background-color: #669933;
+	border: 5px solid #666633;
+	height: 413px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	width: 750px;
+}
+
+#controls {
+	margin: 20px;
+	text-align: center;
+}
+
+img {
+	margin: 0px;
+	padding: 0px;
+	width: 150px;
+	height: 100px;
+}

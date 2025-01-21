@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse; /* Đảm bảo các đường viền không bị chồng chéo */
+    }
+    #table-handle td {
+        border: 2px solid black;
+    }
+    #table-handle div {
+        margin-top: 10px;
+    }
+</style>
+<body>
+    <h1>Create table using Javascript</h1>
+    <table>
+        <tr>
+            <td>Enter the rows number:</td>
+            <td>
+                <input type="text" id="numRow">
+            </td>
+        </tr>
+        <tr>
+            <td>Enter the column number:</td>
+            <td>
+                <input type="text" id="numCol">
+            </td>
+        </tr>
+        <tr>
+            <td>Create Table</td>
+            <td>
+                <button onclick="GenTable('style1')" id="style1">Style 1</button>
+                <button onclick="GenTable('style2')" id="style2">Style 2</button>
+                <button onclick="GenTable('style3')" id="style3">Style 3</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button id="clear" onclick="clearr()">Clear</button>
+            </td>
+        </tr>
+    </table>
+    <div id="table-handle">
+        <div id="table1" style="margin-top: 5px;"></div>
+        <div id="table2" style="margin-top: 5px;"></div>
+        <div id="table3" style="margin-top: 5px;"></div>
+    </div>
+</body>
+<script>
+    function GenTable(style){
+        const numRow = parseInt(document.getElementById('numRow').value);
+        const numCol = parseInt(document.getElementById('numCol').value);
+
+        if(isNaN(numRow) || isNaN(numCol) || numRow < 0 || numCol < 0) {
+            alert("Nhập giá trị chưa hợp lệ");
+            return;
+        }
+
+        let content = "<table>";
+        for(let i=0; i < numRow; i++){
+            content += "<tr>"
+            for(let j = 0; j < numCol; j++){
+                if(style === 'style2' && j % 2 === 0)
+                        content += `<td style='color: red'>${i}${j}</td>`;
+                else if(style === 'style3' && i === j)
+                        content += `<td style='color: red'>${i}${j}</td>`;
+                else
+                    content+= `<td>${i}${j}</td>`;
+            }
+            content += "</tr>";
+        }
+        content += "</table>"
+
+        if(style === 'style2')
+            document.getElementById('table2').innerHTML = content;
+        else if(style === 'style3')
+            document.getElementById('table3').innerHTML = content;
+        else 
+            document.getElementById('table1').innerHTML = content;
+    }
+
+    function clearr(){
+        document.getElementById('numRow').value = "";
+        document.getElementById('numCol').value = "";
+
+        document.getElementById('table1').innerHTML = "";
+        document.getElementById('table2').innerHTML = "";
+        document.getElementById('table3').innerHTML = "";
+
+    }
+</script>
+</html>
